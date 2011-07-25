@@ -7,25 +7,14 @@
 }
 
 body {
-    position: absolute;
     font-family: 'Tenor Sans', Helvetica Narrow, sans-serif;
     font-size: 11pt;
-    width: 518px;
-    height: 348px;
     padding: 0;
     margin: 0;
 }
 
 span.sitename, span.email {
     font-weight: bold;
-}
-
-.dialog h2 {
-    font-size: 2em;
-    font-weight: bold;
-    margin: auto;
-    margin-top: .5em;
-    margin-bottom: 1em;
 }
 
 #bottom-bar {
@@ -127,7 +116,7 @@ button.disabled {
     opacity: .3;
 }
 
-.dialog {
+/*.dialog {
     position: fixed;
     top: 40px;
     right: 0;
@@ -136,7 +125,7 @@ button.disabled {
     margin: auto;
     text-align: center;
 }
-
+*/
 div.input > * {
     float: left;
 }
@@ -231,43 +220,43 @@ div.dialog div.attention_lame {
 }
 
 #header {
-    position: fixed;
-    padding: 0;
-    border: 0;
+    padding: 15px;
     margin: 0;
-    left: 0;
-    top: 0;
-    height: 40px;
-    width: 100%;
-    background: #008;
+    height: 39px;
+    background: #040404;
+    background: -moz-linear-gradient(center top, #323232 0%, #040404 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #323232), color-stop(1, #040404));
     color: #fff;
 }
 
-#logo {
-    background-position: 0 -26px;;
+
+
+h1 {
     color: transparent;
     width: 135px;
     height: 35px;
-    margin: 2px 16px 0 16px;
+    margin: 0 15px 0 0;
     float: left;
 }
 
-#subtitle {
-    margin: 8px 0 0;
-    color: transparent;
-    background-position: 0 0;
-    width: 146px;
-    height: 25px;
+h1.sprite {
+    background-position: 0 -26px;;
+}
+
+h2 {
+    margin: 0;
+    line-height: 39px;
+    font-size: 1em;
+    font-weight: normal;
     float: left;
 }
 
 #labs_logo {
-    position: absolute;
-    top: 9px;
-    right: 10px;
+    float: right;
     background-position: 0 -62px;
     width: 97px;
     height: 20px;
+    margin-top: 4px;
 }
 
 p.prompt {
