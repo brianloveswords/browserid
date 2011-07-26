@@ -40,18 +40,16 @@ $.Controller("Dialog", {}, {
         });
     },
 
-    renderTemplates: function(body, body_vars, footer, footer_vars) {
+    renderTemplates: function(body, body_vars) {
+      var dialog = $('#dialog').empty();
+      
       if (body) {
         var bodyHtml = $.View("//dialog/views/" + body, body_vars);
-        $('#dialog').html(bodyHtml).hide().fadeIn(300, function() {
-          $('#dialog input').eq(0).focus(); 
+        dialog.html(bodyHtml).hide().fadeIn(300, function() {
+          dialog.find('input').eq(0).focus(); 
         });
       }
 
-      if (footer) {
-        var footerHtml = $.View("//dialog/views/" + footer, footer_vars);
-        $('#bottom-bar').html(footerHtml);
-      }
       this.setupEnterKey();
     },
     
@@ -242,22 +240,19 @@ $.Controller("Dialog", {}, {
     },
       
     doSignIn: function() {
-      this.renderTemplates("signin.ejs", {sitename: this.remoteOrigin, identities: getEmails()},
-                           "bottom-pickemail.ejs", {});
+      this.renderTemplates("signin.ejs", {sitename: this.remoteOrigin, identities: getEmails()});
 
       // select the first option
       this.find('input:first').attr('checked', true);
     },
 
     doAuthenticate: function() {
-      this.renderTemplates("authenticate.ejs", {sitename: this.remoteOrigin},
-                           "bottom-signin.ejs", {});
+      this.renderTemplates("authenticate.ejs", {sitename: this.remoteOrigin});
 
     },
       
     doCreate: function() {
-      this.renderTemplates("create.ejs", {},
-                           "bottom-continue.ejs", {});
+      this.renderTemplates("create.ejs", {});
 
       $('#create_continue').addClass('disabled');
 
@@ -343,8 +338,7 @@ $.Controller("Dialog", {}, {
     },
       
     doForgotPassword: function() {
-      this.renderTemplates("forgotpassword.ejs", {},
-                           "bottom-continue.ejs", {});
+      this.renderTemplates("forgotpassword.ejs", {});
 
       $('#create_continue').addClass('disabled');
 
@@ -381,15 +375,13 @@ $.Controller("Dialog", {}, {
     },
 
     doNewEmail: function() {
-      this.renderTemplates("addemail.ejs", {},
-                           "bottom-addemail.ejs", {});
+      this.renderTemplates("addemail.ejs", {});
 
       this.setupEnterKey();
     },
 
     doConfirmEmail: function(email, keypair) {
-      this.renderTemplates("confirmemail.ejs", {email:email},
-                           "bottom-confirmemail.ejs", {});
+      this.renderTemplates("confirmemail.ejs", {email:email});
 
       $('#continue_button').addClass('disabled');
 

@@ -26,14 +26,6 @@ input[type=radio], input[type=radio] + label {
   cursor: pointer;
 }
 
-button {
-    cursor: pointer;
-}
-
-button.disabled {
-    cursor: default;
-    opacity: .3;
-}
 
 header {
     display: block;
@@ -117,14 +109,25 @@ formset a + a {
 }
 
 button {
+    border: 1px solid #ccc;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
     border-radius: 7px;
     background-color: rgb(242, 242, 242);
+    margin: 0 0 0 10px;
     padding: 0.6em 2em;
     z-index: 0;
     font-size: 0.9em;
-    border: none;
+    cursor: pointer;
+}
+
+button:first-child {
+    margin-left: 0;
+}
+
+button.disabled {
+    cursor: default;
+    opacity: .3;
 }
 
 .email {
@@ -157,10 +160,6 @@ button {
     border-radius: 2px;
 }
 
-#cancel {
-    border: 1px solid #ccc;
-}
-
 .righty {
     float: right;
 }
@@ -169,6 +168,7 @@ button {
     background: #029a02;
     background: -moz-linear-gradient(center top, #55bb55 0%, #029a02 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #55bb55), color-stop(1, #029a02));
+    border: none;
     color: #fff;
 }
 
@@ -177,7 +177,7 @@ button {
     background: -webkit-gradient(linear, left 20%, left bottom, color-stop(0, #55bb55), color-stop(1, #029a02));
 }
 
-
+/*
 .actions > .action {
     float: left;
     margin-right: 1em;
@@ -188,12 +188,9 @@ button {
     color: rgb(65, 126, 208);
     text-decoration: none;
 }
-
+*/
 .actions {
-    position: fixed;
-    bottom: 78px;
     font-size: .8em;
-    margin-left: 79px;
 }
 
 #identities {
