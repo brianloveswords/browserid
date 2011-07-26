@@ -384,6 +384,7 @@ $.Controller("Dialog", {}, {
       this.renderTemplates("confirmemail.ejs", {email:email});
 
       $('#continue_button').addClass('disabled');
+      $('body').addClass('waiting_confirmation');
 
       var self = this;
 
@@ -404,9 +405,7 @@ $.Controller("Dialog", {}, {
                     self.persistAddressAndKeyPair(email, keypair, "browserid.org:443");
                     
                     // and tell the user that everything is really quite awesome.
-                    self.find("#waiting_confirmation").hide();
-                    self.find("#resendit_action").hide();
-                    self.find("#confirmed_notice").show();
+                    $('body').removeClass('waiting_confirmation').addClass('confirmed');;
 
                     // enable button
                     $('#continue_button').removeClass('disabled');

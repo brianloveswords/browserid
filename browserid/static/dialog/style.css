@@ -263,10 +263,19 @@ button.disabled {
     opacity: 0;
 }
 
-.nosuchaccount .attention_lame {
+.nosuchaccount .attention_lame, .waiting_confirmation #waiting_confirmation {
     opacity: 1;
     -moz-transition: opacity 1s ease 0s;
     -webkit-transition: opacity 1s ease 0s;
+}
+
+#confirmed_notice, .confirmed #waiting_confirmation, .confirmed #resendit_action {
+    display: none;
+}
+
+.confirmed #confirmed_notice, .waiting_confirmation, #waiting_confirmation {
+    display: block;
+    opacity: 1;
 }
 
 .attention {
