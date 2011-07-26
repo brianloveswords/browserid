@@ -1,5 +1,5 @@
     <section>
-      <h3>Use your BrowserID</h3>
+      <h3>Use your email address</h3>
       <formset>
         <p class="formRow">
           <label for="email_input"> Email </label>
@@ -10,6 +10,7 @@
           <input type="password" id="password_input" pattern=".{5,}" required/>
         </p>
         <a href="#" id="forgotpassword">I forgot my password</a>
+        <a href="#" id="create">Don't have a BrowserID yet?</a>
       </formset>
     </section>
 
@@ -20,10 +21,7 @@
       </p>
     </section>
 
-    <div class="attention_lame" id="nosuchaccount" style="display:none;">
+    <div class="attention_lame" id="nosuchaccount">
       No such account exists with that email and/or password
     </div>
 
-    <div class="actions">
-      <div class="action"><a href="#" id="create">Don't have a BrowserID yet?</a></div>
-    </div>

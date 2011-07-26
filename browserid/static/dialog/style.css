@@ -13,7 +13,109 @@ body {
     margin: 0;
 }
 
-   
+a {
+    color: rgb(65, 126, 208);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input[type=radio], input[type=radio] + label {
+  cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+button.disabled {
+    cursor: default;
+    opacity: .3;
+}
+
+header {
+    display: block;
+    padding: 15px;
+    margin: 0 0 15px;
+    height: 39px;
+    background: #040404;
+    background: -moz-linear-gradient(center top, #323232 0%, #040404 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #323232), color-stop(1, #040404));
+    color: #fff;
+}
+
+
+
+h1 {
+    color: transparent;
+    width: 135px;
+    height: 35px;
+    margin: 0 15px 0 0;
+    float: left;
+}
+
+h1.sprite {
+    background-position: 0 -26px;;
+}
+
+h2 {
+    margin: 0;
+    line-height: 39px;
+    font-size: 1em;
+    font-weight: lighter;
+    float: left;
+}
+
+h3 {
+    margin: 0 0 5px 0;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+
+footer {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    background-color: rgb(244, 247, 251);
+    font-size: .7em;
+    text-align: center;
+}
+
+  
+section {
+    display: table-cell;
+}
+
+
+formset {
+    display: block;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-broder-radius: 5px;
+    border-radius: 5px;
+    background-color: #ccebcc;
+    padding: 20px 37px;
+}
+
+formset a {
+    color: #999;
+    font-size: .8em;
+    font-weight: lighter;
+}
+
+formset a + a {
+    margin-left: 5px;
+}
+
 .email {
     font-weight: bold;
 }
@@ -44,21 +146,6 @@ body {
     border-radius: 2px;
 }
 
-footer {
-    display: block;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 20px;
-    width: 100%;
-    background-color: rgb(244, 247, 251);
-    font-size: .7em;
-    text-align: center;
-}
-
 #bottom-bar button {
     border: 1px solid #ccc;
     height: 30px;
@@ -67,7 +154,6 @@ footer {
     border-radius: 4px;
     background-color: rgb(242, 242, 242);
     padding: 0 2em;
-    margin: 16px 1em 0 1em;
     z-index: 0;
 }
 
@@ -118,22 +204,9 @@ footer {
   line-height: 18px;
 }
 
-input[type=radio], input[type=radio] + label {
-  cursor: pointer;
-}
-
-button {
-    cursor: pointer;
-}
-
-button.disabled {
-    cursor: default;
-    opacity: .3;
-}
-
 #dialog, #bottom-bar {
-    width: 535px;
-    margin: 0 auto;
+    width: 540px;
+    margin: 15px auto;
 }
 
 .input > * {
@@ -151,22 +224,9 @@ button.disabled {
     width: 550px;
 }
 
-.content > .input, .formRow {
-/*    height: 3em;
-    font-size: .8em;
-*/
-}
-
-
-
 .content > .summary {
     text-align: left;
     margin-bottom: 2em;
-}
-
-a {
-    color: rgb(65, 126, 208);
-    text-decoration: none;
 }
 
 .warning {
@@ -194,6 +254,7 @@ a {
     margin: auto;
     text-align: left;
     margin-top: 1em;
+    visibility: hidden;
 }
 
 .attention {
@@ -219,39 +280,6 @@ a {
     background: url('/i/sprite.png') no-repeat 0 0;
 }
 
-header {
-    display: block;
-    padding: 15px;
-    margin: 0 0 15px;
-    height: 39px;
-    background: #040404;
-    background: -moz-linear-gradient(center top, #323232 0%, #040404 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #323232), color-stop(1, #040404));
-    color: #fff;
-}
-
-
-
-h1 {
-    color: transparent;
-    width: 135px;
-    height: 35px;
-    margin: 0 15px 0 0;
-    float: left;
-}
-
-h1.sprite {
-    background-position: 0 -26px;;
-}
-
-h2 {
-    margin: 0;
-    line-height: 39px;
-    font-size: 1em;
-    font-weight: lighter;
-    float: left;
-}
-
 #labs_logo {
     float: right;
     background-position: 0 -62px;
@@ -269,10 +297,6 @@ p.prompt .sitename {
 }
 */
 
-section {
-    display: table-cell;
-}
-
 /*section.left {
     
 }
@@ -281,31 +305,6 @@ section {
     margin-left: 30px;
 }
 */
-h3 {
-    margin: 0 0 5px 0;
-    font-weight: normal;
-    font-size: 1em;
-}
-
-formset {
-    display: block;
-    border: 1px solid #ccc;
-    -moz-border-radius: 5px;
-    -webkit-broder-radius: 5px;
-    border-radius: 5px;
-    background-color: #ccebcc;
-    padding: 20px 37px;
-}
-
-formset a {
-    color: #999;
-    font-size: .9em;
-    font-weight: lighter;
-}
-
-#forgotpassword {
-    margin-left: 80px;
-}
 
 
 .formRow > label {
