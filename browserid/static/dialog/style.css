@@ -263,7 +263,13 @@ button {
     margin: auto;
     text-align: left;
     margin-top: 1em;
-    visibility: hidden;
+    opacity: 0;
+}
+
+.nosuchaccount .attention_lame {
+    opacity: 1;
+    -moz-transition: opacity 1s ease 0s;
+    -webkit-transition: opacity 1s ease 0s;
 }
 
 .attention {

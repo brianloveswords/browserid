@@ -75,9 +75,11 @@ $.Controller("Dialog", {}, {
           },
             success: function(status, textStatus, jqXHR) {
             var authenticated = JSON.parse(status);
+            var body = $('body');
             if (!authenticated) {
-              self.find("#nosuchaccount").hide().fadeIn(400);
+              body.addClass('nosuchaccount');
             } else {
+              body.removeClass('nosuchaccount');
               self.doWait("Finishing Sign In...",
                           "In just a moment you'll be signed into BrowserID.");
               
