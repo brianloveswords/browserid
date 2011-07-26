@@ -169,6 +169,12 @@ formset a + a {
     font-weight: bold;
 }
 
+#bottom-bar > .action:hover {
+    background: -moz-linear-gradient(center 20%, #55bb55 0%, #029a02 100%);
+    background: -webkit-gradient(linear, left 20%, left bottom, color-stop(0, #55bb55), color-stop(1, #029a02));
+}
+
+
 .actions > .action {
     float: left;
     margin-right: 1em;
