@@ -13,8 +13,34 @@ body {
     margin: 0;
 }
 
-span.sitename, span.email {
+.email {
     font-weight: bold;
+}
+
+#sitename_container {
+    border: 1px solid #ccc;
+    border-width: 1px 1px 1px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    -webkit-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    line-height: 150px;
+    padding: 0 20px 0 0;
+    margin: 0;
+}
+
+.sitename {
+    padding: 2px 23px;
+    color: #333;
+    border: 1px solid #c2c2c2;
+    background: #ccc;
+    background: -moz-linear-gradient(center top, #f5f5f5 0%, #cccccc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f5f5f5), color-stop(1, #cccccc));
+    -moz-box-shadow: 1px 1px 1px #666;
+    -webkit-box-shadow: 1px 1px 1px #666;
+    box-shadow: 1px 1px 1px #666;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
 }
 
 #bottom-bar {
@@ -44,17 +70,14 @@ span.sitename, span.email {
 }
 
 #bottom-bar button {
-    height: 25px;
-    border: 1px solid rgb(145, 145, 145);
+    border: none;
+    height: 30px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
     background-color: rgb(242, 242, 242);
-    padding-left: 2em;
-    padding-right: 2em;
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 16px;
+    padding: 0 2em;
+    margin: 16px 1em 0 1em;
     z-index: 0;
 }
 
@@ -63,23 +86,25 @@ span.sitename, span.email {
 }
 
 #bottom-bar button.action {
-    background-color: rgb(0,128,211);
+    background: #029a02;
+    background: -moz-linear-gradient(center top, #55bb55 0%, #029a02 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #55bb55), color-stop(1, #029a02));
     color: #fff;
     font-weight: bold;
 }
 
-div.actions > div.action {
+.actions > .action {
     float: left;
     margin-right: 1em;
 }
 
-div.actions > div.action a {
+.actions > .action a {
     cursor: pointer;
     color: rgb(65, 126, 208);
     text-decoration: none;
 }
 
-div.actions {
+.actions {
     position: fixed;
     bottom: 78px;
     font-size: .8em;
@@ -126,42 +151,32 @@ button.disabled {
     text-align: center;
 }
 */
-div.input > * {
+.input > * {
     float: left;
 }
 
-div.note {
+.note {
     display: inline
 }
 
-div.content {
-    width: 470px;
+.content {
     margin: auto;
     margin-top: 20px;
     text-align: left;
+    width: 550px;
 }
 
-div.content > div.input, .formRow {
-    height: 3em;
+.content > .input, .formRow {
+/*    height: 3em;
     font-size: .8em;
+*/
 }
 
-div.content > div.summary {
+
+
+.content > .summary {
     text-align: left;
     margin-bottom: 2em;
-}
-
-.formRow > label {
-    width: 80px;
-    text-align: left;
-    display: inline-block;
-}
-
-.formRow input {
-    border: 1px solid black;
-    width: 240px;
-    height: 2em;
-    padding: 0 .4em 0 .4em;
 }
 
 a {
@@ -169,23 +184,23 @@ a {
     text-decoration: none;
 }
 
-span.warning {
+.warning {
     color: rgb(153,153,84);
 }
 
-span.bad {
+.bad {
     color: rgb(149,43,9);
 }
 
-span.good {
+.good {
     color: rgb(0,161,51);
 }
 
-div.subtle {
+.subtle {
     opacity: .7;
 }
 
-div.dialog div.attention, div.dialog div.attention_awesome, div.dialog div.attention_lame  {
+.attention, .attention_awesome, .attention_lame  {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px 4px 4px 4px;
@@ -196,19 +211,19 @@ div.dialog div.attention, div.dialog div.attention_awesome, div.dialog div.atten
     margin-top: 1em;
 }
 
-div.dialog div.attention {
+.dialog .attention {
     border: 1px solid rgb(219,231,238);
     background-color: rgb(244,247,251);
 }
 
-div.dialog div.attention_awesome {
+.dialog .attention_awesome {
     border: 1px solid rgb(0,161,51);
     background-color: rgb(0,161,51);
     color: white;
     font-weight: bold;
 }
 
-div.dialog div.attention_lame {
+.dialog .attention_lame {
     border: 1px solid rgb(224,178,139);
     background-color: rgb(253,239,208);
     color: rgb(120,43,9);
@@ -219,7 +234,8 @@ div.dialog div.attention_lame {
     background: url('/i/sprite.png') no-repeat 0 0;
 }
 
-#header {
+header {
+    display: block;
     padding: 15px;
     margin: 0;
     height: 39px;
@@ -247,7 +263,7 @@ h2 {
     margin: 0;
     line-height: 39px;
     font-size: 1em;
-    font-weight: normal;
+    font-weight: lighter;
     float: left;
 }
 
@@ -258,7 +274,7 @@ h2 {
     height: 20px;
     margin-top: 4px;
 }
-
+/*
 p.prompt {
     font-size: 1.1em;
 }
@@ -266,4 +282,63 @@ p.prompt {
 p.prompt .sitename {
     font-size: 1.1em;
 }
+*/
+
+section {
+    display: block;
+    float: left;
+}
+
+section.left {
+    
+}
+
+section.right {
+    margin-left: 30px;
+}
+
+h3 {
+    margin: 0 0 5px 0;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+formset {
+    display: block;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-broder-radius: 5px;
+    border-radius: 5px;
+    background-color: #ccebcc;
+    padding: 20px 37px;
+}
+
+formset a {
+    color: #999;
+    font-size: .9em;
+    font-weight: lighter;
+}
+
+#forgotpassword {
+    margin-left: 80px;
+}
+
+
+.formRow > label {
+    width: 80px;
+    text-align: left;
+    display: block;
+    float: left;
+    line-height: 24px;
+}
+
+.formRow input {
+    border-style: solid;
+    border-color: #abadb3 transparent #e3e9ef #e3e9ef;
+    border-width: 1px 0 1px 1px;
+    width: 175px;
+    height: 2em;
+    padding: 0 .4em 0 .4em;
+}
+
 

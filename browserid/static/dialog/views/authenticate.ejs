@@ -1,18 +1,29 @@
-  <div class="content">
-    <p class="prompt">Signing into <span class="sitename bad"><%= sitename %></span>:</p>
-    <div class="formRow">
-      <label for="email_input"> Email </label>
-      <input type="email" id="email_input" required />
-    </div>
-    <div class="formRow">
-      <label for="password_input"> Password </label>
-      <input type="password" id="password_input" pattern=".{5,}" required/>
-      <a href="#" id="forgotpassword">I forgot my password</a>
-    </div>
+    <section class="left">
+      <h3>Use your BrowserID</h3>
+      <formset>
+        <p class="formRow">
+          <label for="email_input"> Email </label>
+          <input type="email" id="email_input" required />
+        </p>
+        <p class="formRow">
+          <label for="password_input"> Password </label>
+          <input type="password" id="password_input" pattern=".{5,}" required/>
+        </p>
+        <a href="#" id="forgotpassword">I forgot my password</a>
+      </formset>
+    </section>
+
+    <section class="right">
+      <h3>to sign in to</h3>
+      <p id="sitename_container">
+        <span class="sitename"><%= sitename %></span>
+      </p>
+    </section>
+
     <div class="attention_lame" id="nosuchaccount" style="display:none;">
       No such account exists with that email and/or password
     </div>
+
     <div class="actions">
       <div class="action"><a href="#" id="create">Don't have a BrowserID yet?</a></div>
     </div>
-  </div>
