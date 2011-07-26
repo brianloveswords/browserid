@@ -98,18 +98,18 @@ $.Controller("Dialog", {}, {
     "#pickemail click": function(event) {
       var email = $("#identities input:checked").val();
 
-      // yay!  now we need to produce an assertion.
-      var storedID = getEmails()[email];
+      if(email === "addemail") {
+          this.doNewEmail();
+      } else {
+        // yay!  now we need to produce an assertion.
+        var storedID = getEmails()[email];
 
-      var privkey = storedID.priv;
-      var issuer = storedID.issuer;
-      var audience = this.remoteOrigin.replace(/^(http|https):\/\//, '');
-      var assertion = CryptoStubs.createAssertion(audience, email, privkey, issuer);
-      this.onsuccess(assertion);
-    },
-
-    "#addemail click": function(event) {
-      this.doNewEmail();
+        var privkey = storedID.priv;
+        var issuer = storedID.issuer;
+        var audience = this.remoteOrigin.replace(/^(http|https):\/\//, '');
+        var assertion = CryptoStubs.createAssertion(audience, email, privkey, issuer);
+        this.onsuccess(assertion);
+      }
     },
 
     "#addemail_button click": function(event) {
