@@ -13,6 +13,7 @@ body {
     margin: 0;
 }
 
+   
 .email {
     font-weight: bold;
 }
@@ -23,9 +24,9 @@ body {
     -moz-border-radius: 0 5px 5px 0;
     -webkit-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
-    line-height: 150px;
-    padding: 0 20px 0 0;
-    margin: 0;
+    line-height: 148px;
+    padding: 0 20px;
+    margin: 0 0 0 -3px;
 }
 
 .sitename {
@@ -43,20 +44,8 @@ body {
     border-radius: 2px;
 }
 
-#bottom-bar {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 70px;
-    width: 100%;
-    border-top: 2px solid rgb(218, 230, 237);
-    background-color: rgb(244, 247, 251);
-}
-
-#terms {
+footer {
+    display: block;
     margin: 0;
     padding: 0;
     border: 0;
@@ -67,10 +56,11 @@ body {
     width: 100%;
     background-color: rgb(244, 247, 251);
     font-size: .7em;
+    text-align: center;
 }
 
 #bottom-bar button {
-    border: none;
+    border: 1px solid #ccc;
     height: 30px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -81,11 +71,11 @@ body {
     z-index: 0;
 }
 
-#bottom-bar button.righty {
+.righty {
     float: right;
 }
 
-#bottom-bar button.action {
+#bottom-bar > .action {
     background: #029a02;
     background: -moz-linear-gradient(center top, #55bb55 0%, #029a02 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #55bb55), color-stop(1, #029a02));
@@ -141,16 +131,11 @@ button.disabled {
     opacity: .3;
 }
 
-/*.dialog {
-    position: fixed;
-    top: 40px;
-    right: 0;
-    bottom: 80px;
-    left: 0;
-    margin: auto;
-    text-align: center;
+#dialog, #bottom-bar {
+    width: 535px;
+    margin: 0 auto;
 }
-*/
+
 .input > * {
     float: left;
 }
@@ -211,19 +196,19 @@ a {
     margin-top: 1em;
 }
 
-.dialog .attention {
+.attention {
     border: 1px solid rgb(219,231,238);
     background-color: rgb(244,247,251);
 }
 
-.dialog .attention_awesome {
+.attention_awesome {
     border: 1px solid rgb(0,161,51);
     background-color: rgb(0,161,51);
     color: white;
     font-weight: bold;
 }
 
-.dialog .attention_lame {
+.attention_lame {
     border: 1px solid rgb(224,178,139);
     background-color: rgb(253,239,208);
     color: rgb(120,43,9);
@@ -237,7 +222,7 @@ a {
 header {
     display: block;
     padding: 15px;
-    margin: 0;
+    margin: 0 0 15px;
     height: 39px;
     background: #040404;
     background: -moz-linear-gradient(center top, #323232 0%, #040404 100%);
@@ -285,18 +270,17 @@ p.prompt .sitename {
 */
 
 section {
-    display: block;
-    float: left;
+    display: table-cell;
 }
 
-section.left {
+/*section.left {
     
 }
 
-section.right {
+/*section.right {
     margin-left: 30px;
 }
-
+*/
 h3 {
     margin: 0 0 5px 0;
     font-weight: normal;
