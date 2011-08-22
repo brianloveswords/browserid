@@ -49,7 +49,7 @@ logger.info("verifier server starting up");
 
 function doVerify(req, resp, next) {
   req.rawBody = req.rawBody || "";
-  req.body = qs.parse(req.rawBody);
+  req.body = req.body || qs.parse(req.rawBody);
   var assertion = (req.query && req.query.assertion) ? req.query.assertion : req.body.assertion;
   var audience = (req.query && req.query.audience) ? req.query.audience : req.body.audience;
   
