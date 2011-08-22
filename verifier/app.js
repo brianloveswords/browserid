@@ -42,15 +42,17 @@ const   path = require('path'),
          jwt = require('./lib/jwt.js'),
      express = require('express'),
      metrics = require('../libs/metrics.js'),
-     logger = require('../libs/logging.js').logger;
+      logger = require('../libs/logging.js').logger,
+          qs = require('querystring');
 
 logger.info("verifier server starting up");
 
 function doVerify(req, resp, next) {
-  req.body = req.body || {}
+  req.rawBody = req.rawBody || "";
+  req.body = qs.parse(req.rawBody);
   var assertion = (req.query && req.query.assertion) ? req.query.assertion : req.body.assertion;
   var audience = (req.query && req.query.audience) ? req.query.audience : req.body.audience;
-
+  
   if (!(assertion && audience))
     return resp.json({ status: "failure", reason: "need assertion and audience" });
 
