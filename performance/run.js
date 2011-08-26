@@ -49,6 +49,9 @@ var argv = require('optimist')
 .alias('m', 'max')
 .describe('m', 'maximum active users to simulate (0 == infinite)')
 .default('m', 10000)
+.alias('o', 'omit-static')
+.describe('o', 'when enabled, only dynamic WSAPI calls will be simulated, not static resource requests')
+.default('o', false)
 .alias('s', 'server')
 .describe('s', 'base URL to browserid server')
 .demand('s')
@@ -111,10 +114,9 @@ var activity = {
   },
   "signin": {
     // users sign in using existing authentication material
-    // 8 times a day (once ever six hours per device)
+    // 8 times a day (once every six hours per device)
     probability: (8 / 40.0)
   },
-  
   "include_only": {
     // most of the time, users are already authenticated to their
     // RPs, so the hit on our servers is simply resource (include.js)
@@ -151,6 +153,18 @@ Object.keys(activity).forEach(function(k) {
 // a global count of how many poll iterations have been completed
 var iterations = 0;
 
+// output a textual summary of how many activites per second are
+// associated with the given number of active users
+function outputActiveUserSummary(activeUsers) {
+  console.log("with", activeUsers, "active users there will be:");
+  for (var i = 0; i < probs.length; i++) {
+    var p = probs[i][0];
+    if (i !== 0) p -= probs[i-1][0];
+    var n = p * activeUsers * activitiesPerUserPerSecond;
+    console.log(" ", n.toFixed(2), probs[i][1], "activites per second");
+  }
+}
+
 function poll() {
   function startNewActivity() {
     // what type of activity is this?
@@ -162,13 +176,19 @@ function poll() {
         break;
       }
     }
-    // start the activity!
-    outstanding++;
-    activity[act].startFunc(configuration, function(success) {
-      outstanding--;
+    // start the activity! (except if it's an include_only and we're
+    // in 'omit static' mode
+    if (!args.o || act !== 'include_only') {
+      outstanding++;
+      activity[act].startFunc(configuration, function(success) {
+        outstanding--;
+        if (undefined === completed[act]) completed[act] = [ 0, 0 ];
+        completed[act][success ? 0 : 1]++;
+      });
+    } else {
       if (undefined === completed[act]) completed[act] = [ 0, 0 ];
-      completed[act][success ? 0 : 1]++;
-    });
+      completed[act][0]++;
+    }
   }
 
   var numErrors = 0;
@@ -260,7 +280,11 @@ function poll() {
 }
 
 // always start out by creating a bunch of users
-var NUM_INITIAL_USERS = 50;
+var NUM_INITIAL_USERS = 100;
+
+// if an explicit target was specified, let's output what that means
+// in understandable terms
+if (args.m) outputActiveUserSummary(args.m);
 
 console.log("To start, let's create " + NUM_INITIAL_USERS + " users.  A moment please.");
 

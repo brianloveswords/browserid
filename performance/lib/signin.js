@@ -35,22 +35,13 @@
  * ***** END LICENSE BLOCK ***** */
 
 /* this file is the "signin" activity, which simulates the process of a user
- * who has used browserid before signing into browserid inside the dialog and
- * picking an identity */
+ * with an existing browserid account and existing authentication material
+ * signin into a site. */
 
 exports.startFunc = function(cfg, cb) {
-  // 1. RP includes include.js 
-  // 2. users' browser loads all code associated with dialog
-  // 3. in page javascript calls CSRF to get a CSRF token
-  // 4. /wsapi/authenticate_user is called once the user enters credentials
-  // 5. /wsapi/sync_emails is called from the client to get a list of all emails
-  //    that are verified for the user
-  // 6. /wsapi/set_key is called once per email from the client to inform the server
-  //    of the user's public keys (XXX: this should be lazy and only do the email that
-  //    the user is using, further this will change once we move to certificates
-  // 7. the RP will call /verify to verify a generated assertion
-  
-  // XXX: write me
+
+
+  // XXX: implementing this will require actual crypto.
 
   setTimeout(function() { cb(true); }, 10); 
 };
