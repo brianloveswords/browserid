@@ -61,7 +61,6 @@ suite.addBatch({
     topic: wsapi.post('/wsapi/stage_user', {
       email: 'syncer@somehost.com',
       pass: 'fakepass',
-      pubkey: 'fakekey',
       site:'fakesite.com'
     }),
     "yields a sane token": function(r, err) {
@@ -95,6 +94,21 @@ suite.addBatch({
 });
 
 suite.addBatch({
+  "list emails API": {
+    topic: wsapi.get('/wsapi/list_emails', {}),
+    "succeeds with HTTP 200" : function(r, err) {
+      assert.strictEqual(r.code, 200);
+    },
+    "returns an object with proper email": function(r, err) {
+      var emails = Object.keys(JSON.parse(r.body));
+      assert.equal(emails[0], "syncer@somehost.com");
+      assert.equal(emails.length, 1);
+    }
+  }
+});
+
+/*
+suite.addBatch({
   "the sync emails API invoked without a proper argument": {
     topic: wsapi.post('/wsapi/sync_emails', {}),
     "fails with HTTP 400" : function(r, err) {
@@ -105,7 +119,7 @@ suite.addBatch({
     topic: wsapi.post('/wsapi/sync_emails', { emails: '{}' }),
     "returns a response with a proper content-type" : function(r, err) {
       assert.strictEqual(r.code, 200);
-      assert.strictEqual(r.headers['content-type'], 'application/json; charset=utf-8');
+      //assert.strictEqual(r.headers['content-type'], 'application/json; charset=utf-8');
     }
   },
   "the sync emails API invoked without a empty emails argument": {  
@@ -148,6 +162,7 @@ suite.addBatch({
   }
   // NOTE: db-test has more thorough tests of the algorithm behind the sync_emails API
 });
+*/
 
 start_stop.addShutdownBatches(suite);
 
